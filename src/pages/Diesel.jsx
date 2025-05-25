@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronUp, Fuel, Zap, Leaf, TrendingUp, Clock, Award } from 'lucide-react';
+import LikesCommentsComponent from '../components/Commentbox';
 
 // Mock images - replace with your actual imports
 const images = {
@@ -397,6 +398,8 @@ function Diesel() {
           opacity: 0;
         }
       `}</style>
+          <LikesCommentsComponent />
+
     </div>
   );
 }
