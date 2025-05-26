@@ -5,26 +5,31 @@ export default function CookieConsent() {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    // Show banner after a brief delay
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-      setIsAnimating(true);
-    }, 1000);
+    // Check session storage
+    const cookieShown = sessionStorage.getItem("cookieConsentShown");
 
-    return () => clearTimeout(timer);
+    if (!cookieShown) {
+      // Show banner after a brief delay
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+        setIsAnimating(true);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleAccept = () => {
+    sessionStorage.setItem("cookieConsentShown", "true");
     setIsAnimating(false);
     setTimeout(() => setIsVisible(false), 300);
-    // Here you would typically set cookies or call your analytics service
     console.log("Cookies accepted");
   };
 
   const handleDecline = () => {
+    sessionStorage.setItem("cookieConsentShown", "true");
     setIsAnimating(false);
     setTimeout(() => setIsVisible(false), 300);
-    // Here you would handle the decline logic
     console.log("Cookies declined");
   };
 
