@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../App.css"
 import FeaturedCarSection from './Featured';
 import AutoHorizonHero from './Hero';
+import UrbanDriveAd from './ToUrban';
 
 
 
@@ -290,8 +291,10 @@ function Home() {
           </div>
         </div>
       </section>
-           
-      
+           <div className="max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
+  <UrbanDriveAd />
+</div>
+
     </div>
   );
 }

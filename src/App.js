@@ -14,10 +14,12 @@ import LatestCars from './pages/Latest';
 import JoinUsComponent from './pages/Joinus';
 import FeaturedCarSection from './pages/Featured';
 import CarShowcase from './pages/Blog';
+import CookieConsent from './components/Cookies';
 
 function App() {
   return (
     <div className="App">
+      <CookieConsent />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}></Route>
