@@ -320,13 +320,14 @@ export default Electric; */
 
 import React, { useState, useEffect } from 'react';
 import { ChevronUp, Battery, Zap, Leaf, TrendingUp, Clock, Award } from 'lucide-react';
+import LikesCommentsComponent from '../components/Commentbox';
 
 // Mock images - replace with your actual imports
 const images = {
-  ev1: 'https://images.unsplash.com/photo-1593941707882-a5bac6861d75?w=800&h=400&fit=crop',
+  ev1: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   ev2: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&h=400&fit=crop',
   ev3: 'https://images.unsplash.com/photo-1571847140471-1d7766e825ea?w=800&h=400&fit=crop',
-  ev4: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+  ev4: 'https://images.unsplash.com/photo-1666919643134-d97687c1826c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   ev5: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=400&fit=crop',
   ev6: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=400&fit=crop'
 };
@@ -345,8 +346,8 @@ function ElectricVehicle() {
     };
 
     const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '-50px 0px'
+      threshold: 0.1,
+      rootMargin: '200px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -448,7 +449,7 @@ function ElectricVehicle() {
           </p>
           <button 
             onClick={() => document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up animation-delay-600"
+            className="bg-green-500 hover:bg-green-600 px-6 py-3 text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up animation-delay-600"
           >
             Discover More
           </button>
@@ -717,6 +718,7 @@ function ElectricVehicle() {
           opacity: 0;
         }
       `}</style>
+      <LikesCommentsComponent />
     </div>
   );
 }

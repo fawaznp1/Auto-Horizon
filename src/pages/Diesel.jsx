@@ -5,7 +5,7 @@ import LikesCommentsComponent from '../components/Commentbox';
 // Mock images - replace with your actual imports
 const images = {
   d1: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=400&fit=crop',
-  d2: 'https://images.unsplash.com/photo-1562088209-8fabb0f3c39a?w=800&h=400&fit=crop',
+  d2: 'https://plus.unsplash.com/premium_photo-1676760960755-bb03532a8ca3?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   d3: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=400&fit=crop',
   d4: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&h=400&fit=crop',
   d5: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
@@ -26,8 +26,8 @@ function Diesel() {
     };
 
     const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '-50px 0px'
+      threshold: 0.1,
+      rootMargin: '200px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -129,7 +129,7 @@ function Diesel() {
           </p>
           <button 
             onClick={() => document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up animation-delay-600"
+            className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up animation-delay-600"
           >
             Discover More
           </button>

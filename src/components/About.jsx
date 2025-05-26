@@ -66,13 +66,11 @@ const AboutUs = () => {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
-                Explore Our Content
+              <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-3 font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
+              Join Our Community
                 <ChevronRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
-                Join Community
-              </button>
+              
             </div>
           </div>
         </div>
@@ -167,9 +165,9 @@ const AboutUs = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 w-full sm:w-auto bg-slate-800/50 border border-slate-600 rounded-full px-6 py-4 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+              className="flex-1 w-full sm:w-auto bg-slate-800/50 border border-slate-600 rounded-full px-6 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
             />
-            <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 whitespace-nowrap">
+            <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-3 font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 whitespace-nowrap">
               Subscribe Now
             </button>
           </div>

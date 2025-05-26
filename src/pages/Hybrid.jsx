@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronUp, Battery, Zap, Leaf, TrendingUp, Clock, Award } from 'lucide-react';
+import LikesCommentsComponent from '../components/Commentbox';
 
 // Mock images - replace with your actual imports
 const images = {
   h1: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop',
-  h2: 'https://images.unsplash.com/photo-1593941707882-a5bac6861d75?w=800&h=400&fit=crop',
-  h3: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&h=400&fit=crop',
-  h4: 'https://images.unsplash.com/photo-1549924231-f129b911e442?w=800&h=400&fit=crop',
-  h5: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
-  h6: 'https://images.unsplash.com/photo-1552102156-580adbd5c4ab?w=800&h=400&fit=crop'
+  h2: 'https://images.unsplash.com/photo-1606213099787-e572942b2456?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  h3: 'https://images.unsplash.com/photo-1627230570488-60e18880b1ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  h4: 'https://images.unsplash.com/photo-1684734124721-a08272b3aca7?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  h5: 'https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  h6: 'https://images.unsplash.com/photo-1654157925394-4b7809721149?q=80&w=2060&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 };
 
 function HybridCars() {
@@ -25,8 +26,8 @@ function HybridCars() {
     };
 
     const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '-50px 0px'
+      threshold: 0.1,
+      rootMargin: '200px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -128,7 +129,7 @@ function HybridCars() {
           </p>
           <button 
             onClick={() => document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up animation-delay-600"
+            className="bg-green-500 hover:bg-green-600 px-4 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up animation-delay-600"
           >
             Explore Innovation
           </button>
@@ -397,6 +398,7 @@ function HybridCars() {
           opacity: 0;
         }
       `}</style>
+      <LikesCommentsComponent />
     </div>
   );
 }

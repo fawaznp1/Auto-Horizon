@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState  } from 'react';
+import { useNavigate } from 'react-router-dom';
+import "../App.css"
+import FeaturedCarSection from './Featured';
+import AutoHorizonHero from './Hero';
+
+
 
 function Home() {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const navigate = useNavigate();
 
   // Mock data for automotive categories
   const categories = [
@@ -9,7 +16,7 @@ function Home() {
       id: 'vintage',
       title: 'Vintage',
       description: 'Explore the charm of vintage automobiles with detailed reviews, restoration insights, and historical journeys. Let\'s dive into the past and relive the glory of classic cars together.',
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1549359030-a86ed42ff8e9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhciUyMHNpZGV8ZW58MHx8MHx8fDA%3D',
       color: 'from-amber-500 to-orange-600',
       route: '/vintage'
     },
@@ -17,7 +24,7 @@ function Home() {
       id: 'latest',
       title: 'Latest',
       description: 'Keep pace with the newest in automotive technology, from electric vehicles to groundbreaking self-driving features. Embrace the future and learn about the latest innovations.',
-      image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1708063786743-723430dae8f5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNhciUyMHNpZGV8ZW58MHx8MHx8fDA%3D',
       color: 'from-blue-500 to-cyan-600',
       route: '/latest'
     }
@@ -36,7 +43,7 @@ function Home() {
       id: 'hybrid',
       title: 'Hybrid',
       description: 'Learn how hybrid cars are blending traditional and electric technology to reduce emissions and improve efficiency.',
-      image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1530675706010-bc677ce30ab6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGNhcnxlbnwwfHwwfHx8MA%3D%3D',
       color: 'from-purple-500 to-indigo-600',
       route: '/hybrid'
     },
@@ -51,8 +58,7 @@ function Home() {
   ];
 
   const handleNavigation = (route) => {
-    console.log(`Navigating to: ${route}`);
-    // In your actual app, this would be: navigate(route);
+    navigate(route);
   };
 
   const CardComponent = ({ item, isLarge = false, index }) => (
@@ -67,7 +73,8 @@ function Home() {
         <img 
           src={item.image} 
           alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-fill transition-transform duration-700 group-hover:scale-110 "
+          style={{ filter: 'blur(3px)' }}
         />
         <div className={`absolute inset-0 bg-gradient-to-t  opacity-75 group-hover:opacity-85 transition-opacity duration-300`}></div>
       </div>
@@ -81,7 +88,13 @@ function Home() {
           <p className="text-white/90 leading-relaxed mb-4">
             {item.description}
           </p>
-          <button className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-6 py-3 rounded-full font-semibold transition-all duration-300 group-hover:scale-105">
+          <button 
+            className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-6 py-3 rounded-full font-semibold transition-all duration-300 group-hover:scale-105"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNavigation(item.route);
+            }}
+          >
             <span>{isLarge ? 'Explore' : 'Read More'}</span>
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -127,13 +140,27 @@ function Home() {
     );
   };
 
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    if (email) {
+      alert(`Thank you for subscribing with email: ${email}`);
+      e.target.reset();
+    }
+  };
+
   return (
+    
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
       {/* Hero Section */}
-      <section className="py-12 px-4">
+
+      <AutoHorizonHero />
+
+
+      <section className="py-12 px-4" id='home'>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-5xl mt-5 font-bold text-gray-800 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Automotive Excellence
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -178,7 +205,7 @@ function Home() {
           </div>
         </div>
       </section>
-
+ <FeaturedCarSection />
       {/* Location & Video Section */}
       <section className="py-16 px-4 bg-gradient-to-r from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
@@ -210,7 +237,7 @@ function Home() {
             </div>
 
             {/* Video */}
-            <div className="space-y-6">
+            <div className="space-y-6" id='video'>
               <div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
                   <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,45 +272,29 @@ function Home() {
             <p className="text-xl mb-8 opacity-90">
               Get the latest automotive news and insights delivered to your inbox
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white/50"
+                required
+                className="flex-1 px-6 py-3 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"
               />
-              <button className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105">
+              <button 
+                type="submit"
+                className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105"
+              >
                 Subscribe
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </section>
-
-      {/* Call to Action */}
-      <section className="py-16 px-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Your Automotive Journey?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join thousands of automotive enthusiasts who trust our expertise and insights
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => handleNavigation('/contact')}
-              className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105"
-            >
-              Get In Touch
-            </button>
-            <button 
-              onClick={() => handleNavigation('/about')}
-              className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
-            >
-              Learn More
-            </button>
-          </div>
-        </div>
-      </section>
+           
+      
     </div>
   );
 }
+
 
 export default Home;
