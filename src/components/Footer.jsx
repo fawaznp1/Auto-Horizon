@@ -187,11 +187,9 @@ const Footer = () => {
           <div className="border-t border-gray-700 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               {/* Copyright */}
-              <div className="flex items-center text-gray-400 text-sm">
-                <span>© 2025 Logo. Made with</span>
-                <Heart className="w-4 h-4 mx-1 text-red-500 fill-current" />
-                <span>All rights reserved @ </span>
-                <a href="https://fawaznp.vercel.app/" className="text-white no-underline hover:text-white">fawaz_np </a>
+              <div className=" text-gray-400 text-sm">
+                © 2025  {/* <Heart className="w-4 h-4 mx-1 text-red-500 fill-current" /> */}
+                All rights reserved @ <a href="https://fawaznp.vercel.app/" className="text-white no-underline hover:text-white">fawaz_np </a>
               </div>
 
               {/* Social Links */}

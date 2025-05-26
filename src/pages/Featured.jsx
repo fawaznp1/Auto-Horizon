@@ -79,7 +79,7 @@ export default function FeaturedCarSection() {
               <img 
                 src={carImages[currentImageIndex]}
                 alt="2025 Mustang GT"
-                className="w-full h-80 md:h-96 object-cover transition-all duration-700 group-hover:scale-110"
+                className="w-full h-80 md:h-96 object-contain transition-all duration-700 group-hover:scale-110"
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
