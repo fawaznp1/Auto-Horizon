@@ -79,7 +79,7 @@ const CarShowcase = () => {
                     <img 
                       src={car.image} 
                       alt={car.name}
-                      className="w-full h-full object-fill"
+                      className="w-full h-full object-cover"
                     />
                   ) : (
                     <div className="text-center">
