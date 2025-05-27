@@ -1,3 +1,7 @@
 button{
     border-radius: 25px;
 }
+
+img{
+    object-fit: fill !important;
+}
